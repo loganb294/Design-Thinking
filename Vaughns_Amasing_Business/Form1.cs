@@ -15,6 +15,7 @@ namespace Vaughns_Amasing_Business
         public Form1()
         {
             InitializeComponent();
+            dataGridView1.DataSource = People;
         }
     }
 }

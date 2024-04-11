@@ -71,7 +71,7 @@ namespace Vaughns_Amasing_Business
             // Construct the line to be written to the file
             string line = string.Format($"{id}, \"{firstName}\", \"{lastName}\", \"{phone}\", \"{data}\", \"{email}\"");
             // Specify the file path
-            string filePath = "../../data.txt";
+            string filePath = "../../data/data.txt";
 
             // Write the line to the file
             using (StreamWriter writer = new StreamWriter(filePath, true))

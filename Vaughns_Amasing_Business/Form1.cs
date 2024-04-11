@@ -16,5 +16,12 @@ namespace Vaughns_Amasing_Business
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e) { 
+
+         booking_form fm = new booking_form();
+        fm.Show();
+         this.Visible = false;
+        }
     }
 }

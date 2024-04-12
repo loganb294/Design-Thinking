@@ -12,10 +12,17 @@ namespace Vaughns_Amasing_Business
         private string firstName;
         private string lastName;
         private string phone;
-        private DateTime date;
+        private string date;
         private string email;
 
-        public Person(int id, string firstName, string lastName, string phone, DateTime date, string email)
+        public int Id { get => id; set => id = value; }
+        public string FirstName { get => firstName; set => firstName = value; }
+        public string LastName { get => lastName; set => lastName = value; }
+        public string Phone { get => phone; set => phone = value; }
+        public string Date { get => date; set => date = value; }
+        public string Email { get => email; set => email = value; }
+
+        public Person(int id, string firstName, string lastName, string phone, string date, string email)
         {
             this.id = id;
             this.firstName = firstName;
@@ -24,5 +31,7 @@ namespace Vaughns_Amasing_Business
             this.date = date;
             this.email = email;
         }
+
+        
     }
 }

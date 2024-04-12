@@ -15,6 +15,7 @@ namespace Vaughns_Amasing_Business
         public Form1()
         {
             InitializeComponent();
+            //This goes under the read in file section
             dataGridView1.DataSource = People;
         }
     }

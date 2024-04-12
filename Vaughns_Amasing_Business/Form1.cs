@@ -17,6 +17,9 @@ namespace Vaughns_Amasing_Business
         public Form1()
         {
             InitializeComponent();
+
+    
+
             people = new List<Person>();
             string filePath = "../../utils/Data.txt";
             if (File.Exists(filePath))
@@ -43,7 +46,10 @@ namespace Vaughns_Amasing_Business
                     }
                     sr.Close();
                 }
+    
             }
+          //This goes under the read in file section
+            dataGridView1.DataSource = People;
         }
 
         private void button1_Click(object sender, EventArgs e) { 

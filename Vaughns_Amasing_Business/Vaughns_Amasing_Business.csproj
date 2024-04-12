@@ -64,6 +64,7 @@
     <EmbeddedResource Include="booking_form.resx">
       <DependentUpon>booking_form.cs</DependentUpon>
     </EmbeddedResource>
+
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

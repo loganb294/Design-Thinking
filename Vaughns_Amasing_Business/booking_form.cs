@@ -56,11 +56,8 @@ namespace Vaughns_Amasing_Business
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             // Get the values entered by the user
             Random random = new Random();
-
-            // Generate a random integer between 0 and 100 (inclusive)
             int id = random.Next(0, 9000);
             string firstName = Fname.Text;
             string lastName = Lname.Text;
@@ -70,18 +67,19 @@ namespace Vaughns_Amasing_Business
 
             // Specify the file path
             string filePath = "../../utils/data.txt";
-            // Write the line to the file
 
-            // Construct the line to be written to the file
+            // Write the line to the file
             string line = string.Format($"{id}, {firstName}, {lastName}, {phone}, {data}, {email}");
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
                 writer.WriteLine(line);
             }
 
-            // Clear the text boxes after saving
+            // Close the form after adding a new entry
             ClearTextBoxes();
+            this.Close();
         }
+
 
 
         private void ClearTextBoxes()

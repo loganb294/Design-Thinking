@@ -13,51 +13,53 @@ namespace Vaughns_Amasing_Business
 {
     public partial class Form1 : Form
     {
-        private static List<Person> people;
+        private List<Person> people;
+
         public Form1()
         {
             InitializeComponent();
+            LoadData();
+        }
 
-    
-
+        private void LoadData()
+        {
             people = new List<Person>();
-            string filePath = "../../utils/Data.txt";
+            string filePath = "../../utils/data.txt";
             if (File.Exists(filePath))
             {
                 using (StreamReader sr = new StreamReader(filePath))
                 {
-
-                    string firstName, lastName, phone, date, email, line = sr.ReadLine();
-                    while (!sr.EndOfStream)
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
                     {
-                        line = sr.ReadLine();
                         string[] parts = line.Split(',');
-                        firstName = parts[1];
-                        lastName = parts[2];
-                        phone = parts[3];
-                        date = parts[4];
-                        email = parts[5];
-
-                        if (int.TryParse(parts[0], out int userID))
+                        if (parts.Length >= 6)
                         {
-                            people.Add(new Person(userID, firstName, lastName, phone, date, email));
+                            int id;
+                            if (int.TryParse(parts[0], out id))
+                            {
+                                string firstName = parts[1];
+                                string lastName = parts[2];
+                                string phone = parts[3];
+                                string date = parts[4];
+                                string email = parts[5];
+                                people.Add(new Person(id, firstName, lastName, phone, date, email));
+                            }
                         }
-
                     }
-                    sr.Close();
                 }
-    
             }
-          //This goes under the read in file section
-            dataGridView1.DataSource = People;
+            dataGridView1.AutoGenerateColumns = true;
+            dataGridView1.DataSource = people;
         }
 
-        private void button1_Click(object sender, EventArgs e) { 
-
-         booking_form fm = new booking_form();
-        fm.Show();
-         this.Visible = false;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            booking_form fm = new booking_form();
+            fm.ShowDialog(); // Use ShowDialog instead of Show to wait for the form to close
+            LoadData(); // Reload data after booking_form is closed
         }
     }
+
 }
 

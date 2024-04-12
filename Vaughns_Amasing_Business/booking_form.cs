@@ -68,12 +68,12 @@ namespace Vaughns_Amasing_Business
             string data = Data.Text;
             string email = Email.Text;
 
-            // Construct the line to be written to the file
-            string line = string.Format($"{id}, \"{firstName}\", \"{lastName}\", \"{phone}\", \"{data}\", \"{email}\"");
             // Specify the file path
-            string filePath = "../../data/data.txt";
-
+            string filePath = "../../utils/data.txt";
             // Write the line to the file
+
+            // Construct the line to be written to the file
+            string line = string.Format($"{id}, {firstName}, {lastName}, {phone}, {data}, {email}");
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
                 writer.WriteLine(line);
